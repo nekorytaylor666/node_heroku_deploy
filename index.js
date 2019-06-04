@@ -1,6 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
 const ogs = require('open-graph-scraper');
-const firebase = require('firebase');
 const token = '745697317:AAH8xTTQEdYO7CSq5ArcQ-TnNVkdELGz1y8';
 const bot = new TelegramBot(token, { polling: true });
 
