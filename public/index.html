@@ -16,16 +16,20 @@
         data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
     <script type="text/javascript">
         function onTelegramAuth(user) {
-            $.post("https://heroku-test-toha.herokuapp.com/telegram-login",
-                {
-                    id: user.id,
-                    first_name: user.first_name,
-                    last_name: user.last_name,
-                    username: user.username
-                }).done(
-                function (data, status) {
-                    alert("Data: " + data + "\nStatus: " + status);
-                },"json");
+            $.ajax({
+                url: 'users.php',
+                dataType: 'text',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                data: user.serialize,
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+            });
+            
             // alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
         }
     </script>
