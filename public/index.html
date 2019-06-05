@@ -21,7 +21,7 @@
                 dataType: 'text',
                 type: 'post',
                 contentType: 'application/x-www-form-urlencoded',
-                data: user.serialize(),
+                data: JSON.parse(user),
                 success: function( data, textStatus, jQxhr ){
                     $('#response pre').html( data );
                 },
