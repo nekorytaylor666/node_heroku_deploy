@@ -15,7 +15,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-
+const userid;
 // No need to pass any parameters as we will handle the updates with Express
 const bot = new TelegramBot(TOKEN);
 
@@ -36,6 +36,8 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 app.post('/telegram-login', (req,res)=>{
 	console.log("username:",req.body.username);
 	console.log("id:",req.body.id);
+	userid=req.body.id;
+	bot.sendMessage(userid,`hi, ${req.body.username}`);
 	res.redirect('/');
 })
 
@@ -51,6 +53,7 @@ app.listen(port, () => {
 bot.on('message', (msg) => {
 	bot.sendMessage(msg.chat.id, 'I am alive!');
 });
+
 
 // const TelegramBot = require('node-telegram-bot-api');
 // const ogs = require('open-graph-scraper');
