@@ -15,7 +15,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const userid;
+let userid;
 // No need to pass any parameters as we will handle the updates with Express
 const bot = new TelegramBot(TOKEN);
 
