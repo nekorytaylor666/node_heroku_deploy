@@ -34,8 +34,7 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 });
 
 app.post('/telegram-login', (req,res)=>{
-	console.log("username:",req.body.username);
-	console.log("id:",req.body.id);
+	console.log(req.body);
 	userid=req.body.id;
 	bot.sendMessage(userid,`hi, ${req.body.username}`);
 	res.redirect('/');
