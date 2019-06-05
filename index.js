@@ -1,3 +1,6 @@
+process.env.NTBA_FIX_319 = 1;
+
+
 const TelegramBot = require('node-telegram-bot-api');
 const ogs = require('open-graph-scraper');
 const TOKEN = '745697317:AAH8xTTQEdYO7CSq5ArcQ-TnNVkdELGz1y8';
