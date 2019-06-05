@@ -14,7 +14,17 @@
         data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
     <script type="text/javascript">
         function onTelegramAuth(user) {
-            alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+            $.post("https://heroku-test-toha.herokuapp.com/telegram-login",
+                {
+                    id:user.id,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    username: user.username
+                },
+                function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            // alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
         }
     </script>
 </body>

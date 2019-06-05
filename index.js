@@ -33,6 +33,12 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 	res.sendStatus(200);
 });
 
+app.post('/telegram-login', (req,res)=>{
+	console.log("username:",req.body.username);
+	console.log("id:",req.body.id);
+	res.redirect('/');
+})
+
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
