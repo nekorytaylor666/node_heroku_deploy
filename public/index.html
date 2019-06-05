@@ -17,7 +17,7 @@
     <script type="text/javascript">
         function onTelegramAuth(user) {
             $.ajax({
-                url: 'users.php',
+                url: 'https://heroku-test-toha.herokuapp.com/telegram-login',
                 dataType: 'text',
                 type: 'post',
                 contentType: 'application/x-www-form-urlencoded',
