@@ -16,7 +16,7 @@
         data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
     <script type="text/javascript">
         function onTelegramAuth(user) {
-            $.post("../index.js",
+            $.post("https://heroku-test-toha.herokuapp.com/telegram-login",
                 {
                     id: user.id,
                     first_name: user.first_name,
